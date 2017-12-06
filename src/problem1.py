@@ -2,8 +2,8 @@
 PRACTICE Test 1, problem 1.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Benjamin Feaster.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -25,6 +25,7 @@ Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
 #    on it, in class or via Piazza.
 ########################################################################
 
+import math
 
 def main():
     """ Calls the   TEST   functions in this module. """
@@ -92,7 +93,7 @@ def sum_of_digits(number):
 def run_test_problem1a():
     """ Tests the   problem1a   function. """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  problem1a  function defined below.
     #   Include at least **   4   ** tests (we wrote two for you).
     # ------------------------------------------------------------------
@@ -114,10 +115,24 @@ def run_test_problem1a():
     print('       actual:  ', answer)
 
     # Test 2:
+    expected = 1.135  # This is APPROXIMATELY the correct answer.
+    answer = problem1a(1, -2)
+    print()
+    print('Test 2 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+
+    # Test 3:
+    expected = 0  # This is APPROXIMATELY the correct answer.
+    answer = problem1a(0, 0)
+    print()
+    print('Test 3 expected:', expected, '(approximately)')
+    print('       actual:  ', answer)
+
+    # Test 4:
     expected = 1.278  # This is APPROXIMATELY the correct answer.
     answer = problem1a(30, 100)
     print()
-    print('Test 2 expected:', expected, '(approximately)')
+    print('Test 4 expected:', expected, '(approximately)')
     print('       actual:  ', answer)
 
     # ------------------------------------------------------------------
@@ -152,6 +167,12 @@ def problem1a(m, n):
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   10 minutes.
     # ------------------------------------------------------------------
+
+    count = 0
+    for m in range(n):
+        count = count + math.sin((m + 1) ** 2)
+    count = count + math.sin(n ** 2)
+    return count
 
 
 def run_test_problem1b():
