@@ -30,8 +30,8 @@ import rosegraphics as rg
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_problem2a()
-    # run_test_problem2b()
+    # run_test_problem2a()
+    run_test_problem2b()
 
 
 def run_test_problem2a():
@@ -109,10 +109,10 @@ def problem2a(circle, rectangle, window):
     h = rectangle.get_height()
     w = rectangle.get_width()
 
-    line1 = rg.Line((c.x + w * .5, c.y + h * .5), (c.x - w * .5, c.y - h * .5))
+    line1 = rg.Line((0, 50), (50, 100))
+    line1.arrow = 'last'
     line1.attach_to(window)
     window.render()
-    line1.arrow = 'last'
 
 
     # ------------------------------------------------------------------
@@ -195,6 +195,20 @@ def problem2b(rect, n, delta, win):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 to 25 minutes.
     # ------------------------------------------------------------------
+
+    rect.attach_to(win)
+    win.render()
+
+    c = rect.get_center()
+    h = rect.get_height()
+    w = rect.get_width()
+
+    for k in range(n):
+        rectangle = rg.Rectangle(rg.Point(c.x - w, c.y + h), rg.Point(c.x + w,
+                                                              c.y + h))
+        rectangle.attach_to(win)
+    win.render()
+
 
 
 # ----------------------------------------------------------------------
