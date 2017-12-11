@@ -30,7 +30,7 @@ import math
 def main():
     """ Calls the   TEST   functions in this module. """
     run_test_problem1a()
-    run_test_problem1b()
+    # run_test_problem1b()
     run_test_problem1c()
 
 
@@ -169,9 +169,8 @@ def problem1a(m, n):
     # ------------------------------------------------------------------
 
     count = 0
-    for m in range(n):
-        count = count + math.sin((m + 1) ** 2)
-    count = count + math.sin(n ** 2)
+    for k in range(((n ** 2) - abs(m ** 2)) + 1):
+        count = count + math.sin(m + k)
     return count
 
 
@@ -237,7 +236,7 @@ def problem1b(m, f):
            since there are 44 primes between 5 and 200.
      """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     ####################################################################
@@ -252,10 +251,19 @@ def problem1b(m, f):
     # ------------------------------------------------------------------
 
     total = 0
+    if m == f * m:
+        if m == 0:
+            return 0
+        elif m % m == 0:
+            return 1
+        else:
+            return 0
+
     for k in range((f * m) - m):
-        if is_prime(m):
+        if is_prime(m + k):
             total = total + 1
-        m = m + 1
+        else:
+            total = total + 0
     return total
 
 
@@ -356,6 +364,14 @@ def problem1c(n):
     #    TIME ESTIMATE:   15 to 20 minutes.
     # ------------------------------------------------------------------
 
+    total = 1
+    for k in range(n):
+        if is_prime(n + k):
+            total = total + (n * is_prime(n - 1))
+        else:
+            total = total
+
+    return sum_of_digits(total)
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
