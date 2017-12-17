@@ -30,7 +30,7 @@ import math
 def main():
     """ Calls the   TEST   functions in this module. """
     run_test_problem1a()
-    # run_test_problem1b()
+    run_test_problem1b()
     run_test_problem1c()
 
 
@@ -169,7 +169,7 @@ def problem1a(m, n):
     # ------------------------------------------------------------------
 
     count = 0
-    for k in range(((n ** 2) - abs(m ** 2)) + 1):
+    for k in range(abs(n ** 2)):
         count = count + math.sin(m + k)
     return count
 
@@ -365,9 +365,9 @@ def problem1c(n):
     # ------------------------------------------------------------------
 
     total = 1
-    for k in range(n):
+    for k in range(n - 2):
         if is_prime(n + k):
-            total = total + (n * is_prime(n - 1))
+            total = total * (n * is_prime(n - 1))
         else:
             total = total
 

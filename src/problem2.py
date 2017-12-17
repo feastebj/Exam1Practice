@@ -116,7 +116,7 @@ def problem2a(circle, rectangle, window):
 
 
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # ------------------------------------------------------------------
     # ------------------------------------------------------------------
@@ -204,9 +204,11 @@ def problem2b(rect, n, delta, win):
     w = rect.get_width()
 
     for k in range(n):
-        rectangle = rg.Rectangle(rg.Point(c.x - w, c.y + h), rg.Point(c.x + w,
+        rectangle = rg.Rectangle(rg.Point(c.x - 2 * w, c.y - h), rg.Point(c.x
+                                                                        + w,
                                                               c.y + h))
         rectangle.attach_to(win)
+
     win.render()
 
 
